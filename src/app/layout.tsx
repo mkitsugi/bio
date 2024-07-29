@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"
+import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "masaki.kitsugi.dev",
-    template: "%s | masaki_kitsugi.dev",
+    default: "Masaki Kitsugi's website",
+    template: "%s | Masaki Kitsugi's website",
   },
   description: "founder of palpa, Inc.",
   openGraph: {
-    title: "masaki.kitsugi.com",
+    title: "kitsugi.com",
     description: "founder of palpa, Inc.",
-    url: "https://masaki.kitsugi.dev",
-    siteName: "masaki.kitsugi.dev",
+    url: "https://masaki-kitsugi.com",
+    siteName: "Masaki Kitsugi's website",
     images: [
       {
-        url: "https://masaki.kitsugi.dev/og.png",
+        url: "https://masaki-kitsugi.com/og.png",
         width: 1920,
         height: 1080,
       },
@@ -61,11 +61,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-      <body 
+      <body
         className={`bg-black ${
           process.env.NODE_ENV === "development" ? "debug-screens" : undefined
         }`}
-      >{children}</body>
+      >
+        {children}
+      </body>
     </html>
   );
 }
