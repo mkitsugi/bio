@@ -1,6 +1,9 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import { useState, useCallback } from "react";
 import Particles from "./components/particles";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 
 const navigation = [
   // { name: "About", href: "/about" },
@@ -9,9 +12,30 @@ const navigation = [
 ];
 
 export default function Home() {
+
+  const [particleColor, setParticleColor] = useState("255, 255, 255");
+
+  const handleScreenClick = useCallback(() => {
+    const colorPresets = [
+      "255, 0, 0",     // 赤
+      "0, 255, 0",     // 緑
+      "255, 255, 0",   // 黄
+      "255, 0, 255",   // マゼンタ
+      "0, 255, 255",   // シアン
+      "255, 165, 0",   // オレンジ
+      "128, 0, 128",   // 紫
+      "0, 128, 0",     // 深緑
+    ];
+    const randomIndex = Math.floor(Math.random() * colorPresets.length);
+    const newColor = colorPresets[randomIndex];
+    console.log("New color:", newColor); // デバッグ用ログ
+    setParticleColor(newColor);
+  }, []);
+
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-      <nav className="my-16 animate-fade-in">
+    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black"
+    onClick={handleScreenClick}>
+      <nav className="w-full my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-8">
           {navigation.map((item) => (
             <Link
@@ -24,27 +48,24 @@ export default function Home() {
           ))}
         </ul>
       </nav>
+      <div className="absolute right-0 top-0 m-4">
+        <LanguageSwitcher />
+      </div>
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <Particles
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={5000}
+        color={particleColor}
+        key={particleColor}
       />
-      <h1 className="py-3.5 px-0.5 z-10 text-5xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:py-0.5 sm:text-6xl md:text-8xl whitespace-nowrap bg-clip-text">
-        hello world
+      <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:py-0.5 sm:text-4xl md:text-5xl whitespace-nowrap bg-clip-text">
+        Code, Coffee, Repeat
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
+      <div className="my-16 text-center animate-fade-in max-w-[75%]">
         <h2 className="text-sm  text-zinc-500 ">
-            I&apos;m building{" "}
-          <Link
-            target="_blank"
-            href="https://unkey.dev"
-            className="underline duration-500 hover:text-zinc-300"
-          >
-            unkey.dev
-          </Link>{" "}
-          to solve API authentication and authorization for developers.
+        Hey there! I&apos;m Masaki Kitsugi, and this is my little corner of the web. Drop me a line anytime!
         </h2>
       </div>
     </div>
