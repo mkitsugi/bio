@@ -1,3 +1,4 @@
+import withMDX from '@next/mdx'
 /**
  * @type {import('next').NextConfig}
  */
@@ -13,6 +14,7 @@ const nextConfig = {
     // Optional: Change the output directory `out` -> `dist`
     // distDir: 'dist',
   }
-   
-export default nextConfig
+  
+const withMDXConfig = withMDX();
+export default withMDXConfig(nextConfig)
 

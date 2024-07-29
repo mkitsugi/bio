@@ -7,6 +7,7 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 
 const navigation = [
   // { name: "About", href: "/about" },
+  { name: "Biography", href: "/biography" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
@@ -65,7 +66,9 @@ export default function Home() {
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in max-w-[75%]">
         <h2 className="text-sm  text-zinc-500 ">
-        Hey there! I&apos;m Masaki Kitsugi, and this is my little corner of the web. Drop me a line anytime!
+        Hey there! This is Masaki Kitsugi&apos;s little corner of the web. 
+        <br />
+        Drop me a line anytime!
         </h2>
       </div>
     </div>

@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
       </Select.Trigger>
 
       <Select.Portal>
-        <Select.Content className="overflow-hidden bg-zinc-800 rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] mt-8">
+        <Select.Content className="overflow-hidden bg-zinc-800 rounded-md shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] mt-8 z-50">
           <Select.Viewport className="p-[5px]">
             {languages.map((language) => (
               <Select.Item
