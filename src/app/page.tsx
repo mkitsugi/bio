@@ -13,29 +13,29 @@ const navigation = [
 ];
 
 export default function Home() {
-
   const [particleColor, setParticleColor] = useState("255, 255, 255");
 
   const handleScreenClick = useCallback(() => {
     const colorPresets = [
-      "255, 0, 0",     // 赤
-      "0, 255, 0",     // 緑
-      "255, 255, 0",   // 黄
-      "255, 0, 255",   // マゼンタ
-      "0, 255, 255",   // シアン
-      "255, 165, 0",   // オレンジ
-      "128, 0, 128",   // 紫
-      "0, 128, 0",     // 深緑
+      "255, 0, 0", // 赤
+      "0, 255, 0", // ライムグリーン
+      "0, 0, 255", // 青
+      "255, 255, 0", // 黄
+      "255, 0, 255", // マゼンタ
+      "0, 255, 255", // シアン
+      "255, 128, 0", // オレンジ
+      "255, 0, 128", // ピンク
     ];
     const randomIndex = Math.floor(Math.random() * colorPresets.length);
     const newColor = colorPresets[randomIndex];
-    console.log("New color:", newColor); // デバッグ用ログ
     setParticleColor(newColor);
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black"
-    onClick={handleScreenClick}>
+    <div
+      className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black cursor-pointer"
+      onClick={handleScreenClick}
+    >
       <nav className="w-full my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-8">
           {navigation.map((item) => (
@@ -66,9 +66,9 @@ export default function Home() {
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in max-w-[75%]">
         <h2 className="text-sm  text-zinc-500 ">
-        Hey there! This is Masaki Kitsugi&apos;s little corner of the web. 
-        <br />
-        Drop me a line anytime!
+          Hey there! This is Masaki Kitsugi&apos;s little corner of the web.
+          <br />
+          Drop me a line anytime!
         </h2>
       </div>
     </div>
